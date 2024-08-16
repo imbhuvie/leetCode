@@ -15,6 +15,10 @@ public class StringProblem {
     merged: a p b q c r
      */
     public String mergeAlternately(String word1, String word2) {
+        StringProblem stringProblem = new StringProblem();
+        System.out.println(stringProblem + " ,hascode : " + stringProblem.hashCode());
+        String p = "hello";
+        System.out.println(p + " HashCode : " + p.hashCode());
         int len1 = word1.length();
         int len2 = word2.length();
         int largestStrLength = word1.length();
@@ -29,6 +33,10 @@ public class StringProblem {
                 newStr.append(word2.charAt(i));
             i++;
         }
-        return newStr.toString();
+        System.out.println(newStr + " hascode : " + newStr.hashCode());
+        String str = newStr.toString();
+        System.out.println(str + " hascode : " + str.hashCode());
+        return str;
     }
+
 }

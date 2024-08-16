@@ -9,4 +9,5 @@ public class StringProblemTest extends TestCase {
         assertEquals("aabbccdd", stringProblem.mergeAlternately("abcd", "abcd"));
         assertEquals("apbqcr", stringProblem.mergeAlternately("abc", "pqr"));
     }
+    
 }
