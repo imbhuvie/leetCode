@@ -63,6 +63,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
             if (nums[i] == nums[i + 1]) {
                 if (j == 0) {
                     nums[j] = nums[i];
+
                     j++;
                 }
             } else {
