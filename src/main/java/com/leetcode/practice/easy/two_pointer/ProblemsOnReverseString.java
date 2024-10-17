@@ -1,5 +1,10 @@
 package com.leetcode.practice.easy.two_pointer;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class ProblemsOnReverseString {
     /*    2000. Reverse Prefix of Word
 
@@ -89,5 +94,24 @@ Explanation: You could delete the character 'c'.
             j--;
         }
         return true;
+    }
+
+    public List<Integer> findKDistantIndices(int[] nums, int key, int k) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == key) {
+                list.add(i);
+            }
+        }
+        Set<Integer> set = new HashSet<Integer>();
+        for (int i = 0; i < k; i++) {
+            for (int j = 0; j < list.size(); j++) {
+                System.out.print(list.get(i));
+                set.add(list.get(j) + i);
+                set.add(list.get(j) - i);
+            }
+        }
+        // System.out.print(set);
+        return list;
     }
 }

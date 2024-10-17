@@ -81,4 +81,77 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
         return j;
     }
+
+/*
+2164. Sort Even and Odd Indices Independently
+
+You are given a 0-indexed integer array nums. Rearrange the values of nums according to the following rules:
+
+Sort the values at odd indices of nums in non-increasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [4,3,2,1] after. The values at odd indices 1 and 3 are sorted in non-increasing order.
+Sort the values at even indices of nums in non-decreasing order.
+For example, if nums = [4,1,2,3] before this step, it becomes [2,1,4,3] after. The values at even indices 0 and 2 are sorted in non-decreasing order.
+
+ */
+
+    public int[] sortEvenOdd(int[] nums) {
+
+
+        return nums;
+
+    }
+
+    /*
+    832. Flipping an Image
+Given an n x n binary matrix image, flip the image horizontally, then invert it, and return the resulting image.
+
+To flip an image horizontally means that each row of the image is reversed.
+
+For example, flipping [1,1,0] horizontally results in [0,1,1].
+To invert an image means that each 0 is replaced by 1, and each 1 is replaced by 0.
+
+For example, inverting [0,1,1] results in [1,0,0].
+
+
+Example 1:
+
+Input: image = [[1,1,0],[1,0,1],[0,0,0]]
+Output: [[1,0,0],[0,1,0],[1,1,1]]
+Explanation: First reverse each row: [[0,1,1],[1,0,1],[0,0,0]].
+Then, invert the image: [[1,0,0],[0,1,0],[1,1,1]]
+Example 2:
+
+Input: image = [[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]
+Output: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+Explanation: First reverse each row: [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]].
+Then invert the image: [[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
+     */
+
+    public int[][] flipAndInvertImage(int[][] image) {
+        int n = image.length;
+        System.out.println(n);
+        for (int i = 0; i < n; i++) {
+            int start = 0;
+            int end = n - 1;
+            while (start < end) {
+                image[i][start] = (image[i][start]) == 0 ? 1 : 0;
+                image[i][end] = (image[i][end]) == 0 ? 1 : 0;
+                image[i][start] = image[i][start] ^ image[i][end];
+                image[i][end] = image[i][start] ^ image[i][end];
+                image[i][start] = image[i][start] ^ image[i][end];
+                start++;
+                end--;
+                if (start == end) {
+                    image[i][start] = (image[i][start]) == 0 ? 1 : 0;
+                }
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(image[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return image;
+    }
 }
